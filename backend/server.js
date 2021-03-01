@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 require('dotenv/config');
 const routeUrls = require('./routes/route')
 const cors = require('cors')
+const port =process.env.PORT || 4000;
 
 //Connect to DB
 mongoose.connect(process.env.DB_CONNECTION, 
@@ -17,4 +18,4 @@ app.use(cors())
 
 
 app.use('/app',routeUrls)
-app.listen(4000, () => console.log("Server is running"))
+app.listen(port, () => console.log("Server is running"))
