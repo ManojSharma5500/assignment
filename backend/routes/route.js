@@ -47,7 +47,7 @@ router.post('/login',async (req,res) => {
         })
 
         try{
-            if(map[req.body.username] === req.body.password){
+            if( req.body.password !== "" &&  map[req.body.username] === req.body.password){
                 res.send({
                     token: 'test123'
                 })
