@@ -38,7 +38,7 @@ function Login({setToken}) {
                         <label>
                             <input type="text" name="username"  onChange={e => setusername(e.target.value)} />
                             <br/><input type="text" name="password"  onChange={e => setpassword(e.target.value)} />
-                            <br/><br/><input type="submit" />
+                            <br/><br/><button type="submit">Login</button>
                         </label>
                     </form>
                 </div>

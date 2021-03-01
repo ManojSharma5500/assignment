@@ -1,3 +1,4 @@
+const { compare } = require('bcrypt')
 const express = require('express')
 const router = express.Router()
 const signUpTemp = require('../models/signUp_models')
@@ -22,7 +23,6 @@ router.post('/signup', (req, respo) => {
 })
 
 
-
 //Get all data from mongo
 router.get('/',(req,res) => {
     const dataGet = signUpTemp.find()
@@ -34,18 +34,29 @@ router.get('/',(req,res) => {
     })
 })
 
+router.post('/login',async (req,res) => {
+    let map = {};
+        await signUpTemp.find()
+        .then(dataGet => {
+            dataGet.map(datamap => {
+               map[datamap.user_name] = datamap.password;
+            })
+        })
+        .catch(error => {
+            console.warn(error)
+        })
 
-router.post('/login', (req,res) => {
-    
-    console.warn(req.body);
-    
-    console.warn()
-
-    res.send({
-      token: 'test123'
-    })
- 
+        try{
+            if(map[req.body.username] === req.body.password){
+                res.send({
+                    token: 'test123'
+                })
+            }else{
+                res.send({token})
+            }
+        } catch {
+            res.status(500).send()
+        }
 })
-
 
 module.exports = router;
