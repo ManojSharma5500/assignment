@@ -1,0 +1,21 @@
+
+.login-side {
+  background-color: #282c34;
+    float: left;
+    width: 50%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:white
+  }
+
+  .registration-side {
+    background-color:  #282c34;
+    width: 50%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:white
+  }
